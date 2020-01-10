@@ -6,31 +6,38 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            var ulValues = $('#ulValues');
-            $('#btn').click(function () {
+            var dvResult = $('#result');
+            $('#btnSave').click(function () {
+                var person = new Object();
+                person.name = $('#name').val();
+                person.number = $('#number').val();
                 $.ajax({
-                    type: 'GET',
-                    url: "api/values/",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    url: 'api/humanizer',
+                    type: 'POST',
                     dataType: 'json',
-                    success: function (data) {
-                        ulValues.empty();
-                        $.each(data, function (index, val) {
-                            ulValues.append(val);
-                        });
+                    data: JSON.stringify(person),
+                    success: function (data, textStatus, xhr) {
+                        dvResult.text(data.humanizedNumber);
+                        console.log(data);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log('Error in Operation');
                     }
-                });
-            });
-            $('#btnClear').click(function () {
-                ulValues.empty();
+                });  
             });
         });
     </script>
 </head>
 <body>
     <div>
-        <input id="btn" type="button" value="Get All Values" />
-        <input id="btnClear" type="button" value="Clear" />
-        <ul id="ulValues" />
+        Name : <input type="text" name="name" id="name" />
+        Number : <input type="text" name="number" id="number" />
+        <input type="button" id="btnSave" value="Humanize" />
+        <div id="result"></div>
     </div>
 </body>
 </html>

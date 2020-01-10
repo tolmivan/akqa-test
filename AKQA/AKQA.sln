@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{726FF5C0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AKQA.Services.Tests", "AKQA.Services.Tests\AKQA.Services.Tests.csproj", "{69F4A23C-147E-464B-B5FC-B33E60E0E6B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AKQA.Model", "AKQA.Model\AKQA.Model.csproj", "{34F231AF-7BCA-4268-AF39-1EC1ABACB7DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{69F4A23C-147E-464B-B5FC-B33E60E0E6B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69F4A23C-147E-464B-B5FC-B33E60E0E6B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69F4A23C-147E-464B-B5FC-B33E60E0E6B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34F231AF-7BCA-4268-AF39-1EC1ABACB7DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34F231AF-7BCA-4268-AF39-1EC1ABACB7DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34F231AF-7BCA-4268-AF39-1EC1ABACB7DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34F231AF-7BCA-4268-AF39-1EC1ABACB7DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
