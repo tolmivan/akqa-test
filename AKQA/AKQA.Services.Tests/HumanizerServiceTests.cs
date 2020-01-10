@@ -5,10 +5,17 @@ namespace AKQA.Services.Tests
 {
     public class HumanizerServiceTests
     {
+        private HumanizerService _sut;
+
+        public HumanizerServiceTests()
+        {
+            _sut = new HumanizerService();
+        }
+
         [Fact]
         public void NumbersToMoneyWords_GivenNumbersAsPerExample_ReturnsStringAsPerExample()
         {
-            var actual = HumanizerService.NumbersToMoneyWords(123, 45);
+            var actual = _sut.NumbersToMoneyWords(123, 45);
 
             Assert.Equal("ONE HUNDRED AND TWENTY-THREE DOLLARS AND FORTY-FIVE CENTS", actual);
         }
@@ -16,7 +23,7 @@ namespace AKQA.Services.Tests
         [Fact]
         public void NumbersToMoneyWords_GivenOneDollarAndOneCent_ReturnsStringContainingDOLLARandCENT()
         {
-            var actual = HumanizerService.NumbersToMoneyWords(1, 1);
+            var actual = _sut.NumbersToMoneyWords(1, 1);
 
             Assert.Equal("ONE DOLLAR AND ONE CENT", actual);
         }
@@ -24,7 +31,7 @@ namespace AKQA.Services.Tests
         [Fact]
         public void NumbersToMoneyWords_GivenZeroValues_ReturnsStringContainingZERO()
         {
-            var actual = HumanizerService.NumbersToMoneyWords(0, 0);
+            var actual = _sut.NumbersToMoneyWords(0, 0);
 
             Assert.Equal("ZERO DOLLARS AND ZERO CENTS", actual);
         }
@@ -32,7 +39,7 @@ namespace AKQA.Services.Tests
         [Fact]
         public void NumbersToMoneyWords_GivenNegativeNumbers_ReturnsStringContainingMINUS()
         {
-            var actual = HumanizerService.NumbersToMoneyWords(-1, -1);
+            var actual = _sut.NumbersToMoneyWords(-1, -1);
 
             Assert.Equal("MINUS ONE DOLLARS AND MINUS ONE CENTS", actual);
         }
@@ -42,7 +49,7 @@ namespace AKQA.Services.Tests
         [InlineData(123, 45, "ONE HUNDRED AND TWENTY-THREE DOLLARS AND FORTY-FIVE CENTS")]
         public void NumbersToMoneyWords_GivenSomeRandomNUmbers_ReturnsExpectedStrings(int dollars, int cents, string expected)
         {
-            var actual = HumanizerService.NumbersToMoneyWords(dollars, cents);
+            var actual = _sut.NumbersToMoneyWords(dollars, cents);
 
             Assert.Equal(expected, actual);
         }

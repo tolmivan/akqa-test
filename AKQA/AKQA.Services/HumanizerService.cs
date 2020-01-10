@@ -1,10 +1,11 @@
-﻿using Humanizer;
+﻿using AKQA.Services.Abstract;
+using Humanizer;
 
 namespace AKQA.Services
 {
-    public static class HumanizerService
+    public class HumanizerService : IHumanizerService
     {
-        public static string NumbersToMoneyWords(int dollars, int cents)
+        public string NumbersToMoneyWords(int dollars, int cents)
         {
             var dollarString = "dollars".ToQuantity(dollars, ShowQuantityAs.Words);
             var centsString = "cents".ToQuantity(cents, ShowQuantityAs.Words);
