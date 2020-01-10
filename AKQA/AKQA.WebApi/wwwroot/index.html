@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var ulValues = $('#ulValues');
+            $('#btn').click(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: "api/values/",
+                    dataType: 'json',
+                    success: function (data) {
+                        ulValues.empty();
+                        $.each(data, function (index, val) {
+                            ulValues.append(val);
+                        });
+                    }
+                });
+            });
+            $('#btnClear').click(function () {
+                ulValues.empty();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <input id="btn" type="button" value="Get All Values" />
+        <input id="btnClear" type="button" value="Clear" />
+        <ul id="ulValues" />
+    </div>
+</body>
+</html>
