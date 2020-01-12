@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AKQA.Bussiness.Abstract;
 using AKQA.Model;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,12 +12,18 @@ namespace AKQA.WebApi.Controllers
     [ApiController]
     public class HumanizerController : ControllerBase
     {
+        private readonly IPersonProcessor _personProcessor;
+
+        public HumanizerController(IPersonProcessor personProcessor)
+        {
+            _personProcessor = personProcessor;
+        }
+
         // POST api/humanizer
         [HttpPost]
         public ActionResult<Person> Post(Person value)
         {
-            value.HumanizedNumber = "ONE HUNDRED AND TWENTY-THREE DOLLARS AND FORTY-FIVE CENTS";
-            return value;
+            return Ok(_personProcessor.ProcessPerson(value));
         }
     }
 }

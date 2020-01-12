@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AKQA.Bussiness\AKQA.Bussiness.csproj" />
     <ProjectReference Include="..\AKQA.Model\AKQA.Model.csproj" />
     <ProjectReference Include="..\AKQA.Services\AKQA.Services.csproj" />
   </ItemGroup>

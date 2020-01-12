@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AKQA.Model\AKQA.Model.csproj" />
+    <ProjectReference Include="..\AKQA.Services\AKQA.Services.csproj" />
+  </ItemGroup>
+
+</Project>

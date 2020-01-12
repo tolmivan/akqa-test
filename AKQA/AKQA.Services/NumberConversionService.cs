@@ -3,7 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AKQA.Services.Tests
+namespace AKQA.Services
+
 {
     public class NumberConversionService : INumberConversionService
     {

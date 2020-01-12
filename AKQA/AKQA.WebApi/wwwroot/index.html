@@ -25,6 +25,7 @@
                         console.log(data);
                     },
                     error: function (xhr, textStatus, errorThrown) {
+                        dvResult.html(xhr.responseText);
                         console.log('Error in Operation');
                     }
                 });  
