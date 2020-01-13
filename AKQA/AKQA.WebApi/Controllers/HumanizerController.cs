@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AKQA.Bussiness.Abstract;
+﻿using AKQA.Bussiness.Abstract;
 using AKQA.Model;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,10 +16,15 @@ namespace AKQA.WebApi.Controllers
         }
 
         // POST api/humanizer
+        /// <summary>
+        /// processing a Person and adds a humanized vesrion of the number to it
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult<Person> Post(Person value)
         {
-            return Ok(_personProcessor.ProcessPerson(value));
+            return Ok(_personProcessor.ProcessNumberIntoWords(value));
         }
     }
 }

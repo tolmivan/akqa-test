@@ -1,12 +1,12 @@
 ﻿using AKQA.Bussiness.Abstract;
 using AKQA.Model;
 using AKQA.Services.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AKQA.Bussiness
 {
+    /// <summary>
+    /// Encapsulate processing logic for Person object
+    /// </summary>
     public class PersonProcessor : IPersonProcessor
     {
         private readonly INumberConversionService _numberConversionService;
@@ -18,9 +18,14 @@ namespace AKQA.Bussiness
             _humanizerService = humanizerService;
         }
 
-        public Person ProcessPerson(Person person)
+        /// <summary>
+        /// Generates a word representation of Number field and updated HumanizedNumber field with that
+        /// </summary>
+        /// <param name="person"></param>
+        /// <returns></returns>
+        public Person ProcessNumberIntoWords(Person person)
         {
-            _numberConversionService.SplitStringIntoIntegralAndFractionParts(person.Number, out int integralPart, out int fractionPart);
+            _numberConversionService.SplitStringNumberIntoIntegralAndFractionParts(person.Number, out int integralPart, out int fractionPart);
 
             person.HumanizedNumber = _humanizerService.NumbersToMoneyWords(integralPart, fractionPart);
 

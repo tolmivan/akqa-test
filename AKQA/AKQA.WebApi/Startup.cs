@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AKQA.Bussiness;
+﻿using AKQA.Bussiness;
 using AKQA.Bussiness.Abstract;
 using AKQA.Services.Abstract;
 using AKQA.Services;
@@ -11,8 +7,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace AKQA.WebApi
 {
@@ -30,6 +24,7 @@ namespace AKQA.WebApi
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            // configure dependencies
             services.AddScoped<INumberConversionService, NumberConversionService>();
             services.AddScoped<IHumanizerService, HumanizerService>();
             services.AddScoped<IPersonProcessor, PersonProcessor>();

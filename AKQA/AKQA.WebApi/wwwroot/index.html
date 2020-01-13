@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿<!--
+    basic html client to work with an API backend
+    for the real-life application needs to be replaced with something more sophisticated e.g. asp.net mvc, razor, angular fron-end
+    to allow out-of-the-box validation, authentication, unit testing etc
+-->
+<!DOCTYPE html>
 <html>
 <head>
     <title></title>
@@ -6,11 +11,21 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            var dvResult = $('#result');
+
+            var dvErrorMessage = $('#dvErrorMessage');
+
             $('#btnSave').click(function () {
+                // clear the output fields beforehand
+                $('#pName').empty();
+                $('#pWords').empty();
+                $('#dvErrorMessage').empty();
+
+                // prepare an object to send to the API
                 var person = new Object();
                 person.name = $('#name').val();
                 person.number = $('#number').val();
+
+                // construct an ajax call
                 $.ajax({
                     headers: {
                         'Accept': 'application/json',
@@ -20,12 +35,17 @@
                     type: 'POST',
                     dataType: 'json',
                     data: JSON.stringify(person),
+                    // here we display the result of the API processing
                     success: function (data, textStatus, xhr) {
-                        dvResult.text(data.humanizedNumber);
+                        $('#pName').text(data.name);
+                        $('#pWords').text(data.humanizedNumber);
                         console.log(data);
                     },
+                    // something is not right - show the debug info to investigate the issue 
+                    // (when configured for Prod the debufg info should go to logs instead presenting the client with a user-friendly message)
                     error: function (xhr, textStatus, errorThrown) {
-                        dvResult.html(xhr.responseText);
+                        //do it that way only because we trust our API - not a good idea otherwise
+                        $('#dvErrorMessage').html(xhr.responseText);
                         console.log('Error in Operation');
                     }
                 });  
@@ -34,11 +54,14 @@
     </script>
 </head>
 <body>
+    <!--a simple web form with two input fields, a button and a div to display the result-->
     <div>
         Name : <input type="text" name="name" id="name" />
         Number : <input type="text" name="number" id="number" />
         <input type="button" id="btnSave" value="Humanize" />
-        <div id="result"></div>
+        <p id="pName"></p>
+        <p id="pWords"></p>
+        <div id="dvErrorMessage"></div>
     </div>
 </body>
 </html>

@@ -6,6 +6,6 @@ namespace AKQA.Services.Abstract
 {
     public interface INumberConversionService
     {
-        void SplitStringIntoIntegralAndFractionParts(string input, out int integralPart, out int fractionPart);
+        void SplitStringNumberIntoIntegralAndFractionParts(string input, out int integralPart, out int fractionPart);
     }
 }

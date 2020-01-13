@@ -8,7 +8,14 @@ namespace AKQA.Services
 {
     public class NumberConversionService : INumberConversionService
     {
-        public void SplitStringIntoIntegralAndFractionParts(string input, out int integralPart, out int fractionPart)
+        /// <summary>
+        /// Given a string containg a number returns an integral and fraction parts of it
+        /// Throws an argument exception if fails to convert the string to a number
+        /// </summary>
+        /// <param name="input">a string containg a number</param>
+        /// <param name="integralPart">integral part</param>
+        /// <param name="fractionPart">fraction part</param>
+        public void SplitStringNumberIntoIntegralAndFractionParts(string input, out int integralPart, out int fractionPart)
         {
             try
             {

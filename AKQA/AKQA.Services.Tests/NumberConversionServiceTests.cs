@@ -18,7 +18,7 @@ namespace AKQA.Services.Tests
             int dollars;
             int cents;
 
-            _sut.SplitStringIntoIntegralAndFractionParts("123.45", out dollars, out cents);
+            _sut.SplitStringNumberIntoIntegralAndFractionParts("123.45", out dollars, out cents);
 
             Assert.Equal(123, dollars);
             Assert.Equal(45, cents);
@@ -37,7 +37,7 @@ namespace AKQA.Services.Tests
             int dollars;
             int cents;
 
-            _sut.SplitStringIntoIntegralAndFractionParts(input, out dollars, out cents);
+            _sut.SplitStringNumberIntoIntegralAndFractionParts(input, out dollars, out cents);
 
             Assert.Equal(expectedDollars, dollars);
             Assert.Equal(expectedCents, cents);
@@ -54,7 +54,7 @@ namespace AKQA.Services.Tests
             int dollars;
             int cents;
 
-            Exception result = Assert.Throws<ArgumentException>(() => _sut.SplitStringIntoIntegralAndFractionParts(input, out dollars, out cents));
+            Exception result = Assert.Throws<ArgumentException>(() => _sut.SplitStringNumberIntoIntegralAndFractionParts(input, out dollars, out cents));
 
             Assert.Equal("Invalid number string", result.Message);
         }
