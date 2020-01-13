@@ -17,7 +17,7 @@ namespace AKQA.WebApi.Controllers
 
         // POST api/humanizer
         /// <summary>
-        /// processing a Person and adds a humanized vesrion of the number to it
+        /// processes a Person and adds a humanized version of the number
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>

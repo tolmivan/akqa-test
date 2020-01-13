@@ -1,5 +1,9 @@
-# akqa-test
+﻿# akqa-test
+
+------- requirements --------
+
 Take-away Tech Test
+
 The Task
 Develop a web application that performs the following functions:
 Capture a person’s name and a number
@@ -10,6 +14,29 @@ Input: John Smith
 “123.45”
 Output: John Smith
 “ONE HUNDRED AND TWENTY-THREE DOLLARS AND FORTY-FIVE CENTS”
+
+------- design notes --------
+
+The application is designed to meet the requirements above and below
+
+It is implemented using 
+- .NET Core 2.2 Web Api as a back-end
+- a simple html page using Ajax call to consume web api as a front-end (index.html)
+- a Services class library to implement transformation functionality, it utilizes Humanizr open source library to transform numbers to words
+- a Bussiness class library to encapsulate processing/orchestartion logic
+- xUnit test project to test services and processing
+
+The back-end of the applicatin is built with extensibility/maintainability in mind. It is structured the way allowing future changes 
+without affecting the existing functionality. Using abstractions/interfaces keep parts of the solution decoupled also providing testability.
+
+Please note that the applicationion is build to demonstrate programming skills/style in C#, .NET, Web Api etc so that the front-end of the application
+is scarce on purpose.
+In a case of a failure the webpage displays raw debug data which is not a good practice for a real life application.
+Here it is to demonstrate the data flowing through and available for the client to be consumed the way it finds necessary.
+
+
+------- more requirements --------
+
 About your solution
 Please structure your solution so that it includes :
 A web service
