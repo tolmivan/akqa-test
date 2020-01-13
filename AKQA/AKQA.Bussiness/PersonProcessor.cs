@@ -25,9 +25,14 @@ namespace AKQA.Bussiness
         /// <returns></returns>
         public Person ProcessNumberIntoWords(Person person)
         {
-            _numberConversionService.SplitStringNumberIntoIntegralAndFractionParts(person.Number, out int integralPart, out int fractionPart);
+            if (!string.IsNullOrEmpty(person?.Number))
+            {
+                // call conversion service to get dollars and cents values
+                _numberConversionService.SplitStringNumberIntoIntegralAndFractionParts(person.Number, out int dollars, out int cents);
 
-            person.HumanizedNumber = _humanizerService.NumbersToMoneyWords(integralPart, fractionPart);
+                // call humanizer service to convert numbers into words
+                person.HumanizedNumber = _humanizerService.NumbersToMoneyWords(dollars, cents);
+            }
 
             return person;
         }
